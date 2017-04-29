@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/andyfrith/weather.goodapplemedia.com/master/app/components/Header/logo.png" alt="Good Apple Weather banner" align="center" />
+<img src="https://raw.githubusercontent.com/andyfrith/weather.goodapplemedia.com/master/app/GoodAppleWeather.png" alt="Good Apple Weather banner" align="center" />
 <br />
 
 <div align="center"><strong>Good Apple Weather</strong></div>
