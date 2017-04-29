@@ -1,16 +1,21 @@
 import styled from 'styled-components';
+import { media } from 'utils/StyleUtils';
 
 const Wrapper = styled.li`
+  margin-bottom: 20px;
   width: 100%;
-  height: 3em;
-  display: flex;
   align-items: center;
   position: relative;
-  border-top: 1px solid #eee;
+  text-align: center;
 
   &:first-child {
     border-top: none;
   }
+  
+  ${ media.tablet`
+    width: 7em;
+    margin-bottom: 0;
+  `}
 `;
 
 export default Wrapper;

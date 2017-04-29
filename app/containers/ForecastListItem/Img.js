@@ -1,12 +1,15 @@
 import styled from 'styled-components';
-
+import { media } from 'utils/StyleUtils';
 import NormalImg from 'components/Img';
 
 const Img = styled(NormalImg)`
-  width: 35px; //100%;
-  margin: 5px;
+  margin: -10px 0 0 0;
+  
   display: block;
-  float: left;
+  
+  ${ media.tablet`
+    margin: 0 auto;
+  `}
 `;
 
 export default Img;

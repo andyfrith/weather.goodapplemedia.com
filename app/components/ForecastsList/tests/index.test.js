@@ -1,16 +1,15 @@
 import { shallow, mount } from 'enzyme';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-
-import RepoListItem from 'containers/RepoListItem';
+import ForecastListItem from 'containers/ForecastListItem';
 import List from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
-import ReposList from '../index';
+import ForecastsList from '../index';
 
-describe('<ReposList />', () => {
+describe('<ForecastsList />', () => {
   it('should render the loading indicator when its loading', () => {
     const renderedComponent = shallow(
-      <ReposList loading />
+      <ForecastsList loading />
     );
     expect(renderedComponent.contains(<List component={LoadingIndicator} />)).toEqual(true);
   });
@@ -18,7 +17,7 @@ describe('<ReposList />', () => {
   it('should render an error if loading failed', () => {
     const renderedComponent = mount(
       <IntlProvider locale="en">
-        <ReposList
+        <ForecastsList
           loading={false}
           error={{ message: 'Loading failed!' }}
         />
@@ -28,7 +27,7 @@ describe('<ReposList />', () => {
   });
 
   it('should render the repositories if loading was successful', () => {
-    const repos = [{
+    const forecasts = [{
       owner: {
         login: 'mxstbr',
       },
@@ -38,19 +37,19 @@ describe('<ReposList />', () => {
       full_name: 'react-boilerplate/react-boilerplate',
     }];
     const renderedComponent = shallow(
-      <ReposList
-        repos={repos}
+      <ForecastsList
+        forecasts={forecasts}
         error={false}
       />
     );
 
-    expect(renderedComponent.contains(<List items={repos} component={RepoListItem} />)).toEqual(true);
+    expect(renderedComponent.contains(<List items={forecasts} component={ForecastListItem} />)).toEqual(true);
   });
 
   it('should not render anything if nothing interesting is provided', () => {
     const renderedComponent = shallow(
-      <ReposList
-        repos={false}
+      <ForecastsList
+        forecasts={false}
         error={false}
         loading={false}
       />

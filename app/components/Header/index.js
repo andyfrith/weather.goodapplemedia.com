@@ -1,26 +1,34 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-
-import A from './A';
 import Img from './Img';
+import Logo from './logo.png';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
 import messages from './messages';
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
-        </A>
+      <div style={{ minWidth: '400px'}}>
         <NavBar>
+          <Img src={Logo} alt="Logo" />
           <HeaderLink to="/">
-            <FormattedMessage {...messages.home} />
+            <FormattedMessage {...messages.today} />
           </HeaderLink>
-          <HeaderLink to="/features">
-            <FormattedMessage {...messages.features} />
+          <HeaderLink to="/">
+            <FormattedMessage {...messages.hourly} />
+          </HeaderLink>
+          <HeaderLink to="/" style={{ textDecoration: 'underline'}}>
+            <FormattedMessage {...messages.fiveDay} />
+          </HeaderLink>
+          <HeaderLink to="/">
+            <FormattedMessage {...messages.tenDay} />
+          </HeaderLink>
+          <HeaderLink to="/">
+            <FormattedMessage {...messages.weekend} />
+          </HeaderLink>
+          <HeaderLink to="/">
+            <FormattedMessage {...messages.monthly} />
           </HeaderLink>
         </NavBar>
       </div>

@@ -16,19 +16,64 @@
  */
 
 import {
-  LOAD_REPOS,
-  LOAD_REPOS_SUCCESS,
-  LOAD_REPOS_ERROR,
+  LOAD_CURRENT_WEATHER,
+  LOAD_CURRENT_WEATHER_SUCCESS,
+  LOAD_CURRENT_WEATHER_ERROR,
+  LOAD_FORECASTS,
+  LOAD_FORECASTS_SUCCESS,
+  LOAD_FORECASTS_ERROR,
 } from './constants';
+
+/**
+ * Load the current weather, this action starts the request saga
+ *
+ * @return {object} An action object with a type of LOAD_CURRENT_WEATHER
+ */
+export function loadCurrentWeather() {
+  return {
+    type: LOAD_CURRENT_WEATHER,
+  };
+}
+
+/**
+ * Dispatched when the current weather is loaded by the request saga
+ *
+ * @param  {array} currentWeather The current weather data
+ * @param  {string} username The current username
+ *
+ * @return {object}      An action object with a type of LOAD_CURRENT_WEATHER_SUCCESS passing the repos
+ */
+export function currentWeatherLoaded(currentWeather, username) {
+  return {
+    type: LOAD_CURRENT_WEATHER_SUCCESS,
+    currentWeather,
+    username,
+  };
+}
+
+/**
+ * Dispatched when loading the repositories fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of LOAD_CURRENT_WEATHER_ERROR passing the error
+ */
+export function currentWeatherLoadingError(error) {
+  return {
+    type: LOAD_CURRENT_WEATHER_ERROR,
+    error,
+  };
+}
+
 
 /**
  * Load the repositories, this action starts the request saga
  *
  * @return {object} An action object with a type of LOAD_REPOS
  */
-export function loadRepos() {
+export function loadForecasts() {
   return {
-    type: LOAD_REPOS,
+    type: LOAD_FORECASTS,
   };
 }
 
@@ -40,10 +85,10 @@ export function loadRepos() {
  *
  * @return {object}      An action object with a type of LOAD_REPOS_SUCCESS passing the repos
  */
-export function reposLoaded(repos, username) {
+export function forecastsLoaded(forecasts, username) {
   return {
-    type: LOAD_REPOS_SUCCESS,
-    repos,
+    type: LOAD_FORECASTS_SUCCESS,
+    forecasts,
     username,
   };
 }
@@ -55,9 +100,9 @@ export function reposLoaded(repos, username) {
  *
  * @return {object}       An action object with a type of LOAD_REPOS_ERROR passing the error
  */
-export function repoLoadingError(error) {
+export function forecastLoadingError(error) {
   return {
-    type: LOAD_REPOS_ERROR,
+    type: LOAD_FORECASTS_ERROR,
     error,
   };
 }

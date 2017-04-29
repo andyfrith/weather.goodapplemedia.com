@@ -1,0 +1,144 @@
+{
+  "city": {
+    "id": 5419384,
+    "name": "Denver",
+    "coord": {
+      "lon": -104.9848,
+      "lat": 39.7392
+    },
+    "country": "US",
+    "population": 0
+  },
+  "cod": "200",
+  "message": 0.453111,
+  "cnt": 5,
+  "list": [
+    {
+      "dt": 1493402400,
+      "temp": {
+        "day": 285.65,
+        "min": 270.29,
+        "max": 286.39,
+        "night": 270.29,
+        "eve": 279.54,
+        "morn": 279.71
+      },
+      "pressure": 806.08,
+      "humidity": 64,
+      "weather": [
+        {
+          "id": 601,
+          "main": "Snow",
+          "description": "snow",
+          "icon": "13d"
+        }
+      ],
+      "speed": 4.11,
+      "deg": 77,
+      "clouds": 36,
+      "rain": 1.07,
+      "snow": 11.69
+    },
+    {
+      "dt": 1493488800,
+      "temp": {
+        "day": 269.52,
+        "min": 268.22,
+        "max": 270.35,
+        "night": 269.13,
+        "eve": 270.35,
+        "morn": 268.22
+      },
+      "pressure": 819.42,
+      "humidity": 90,
+      "weather": [
+        {
+          "id": 601,
+          "main": "Snow",
+          "description": "snow",
+          "icon": "13d"
+        }
+      ],
+      "speed": 6.46,
+      "deg": 357,
+      "clouds": 92,
+      "snow": 8.05
+    },
+    {
+      "dt": 1493575200,
+      "temp": {
+        "day": 276.69,
+        "min": 267.54,
+        "max": 278.24,
+        "night": 271.42,
+        "eve": 277.95,
+        "morn": 267.54
+      },
+      "pressure": 813.63,
+      "humidity": 76,
+      "weather": [
+        {
+          "id": 600,
+          "main": "Snow",
+          "description": "light snow",
+          "icon": "13d"
+        }
+      ],
+      "speed": 5.46,
+      "deg": 11,
+      "clouds": 0,
+      "snow": 0.06
+    },
+    {
+      "dt": 1493661600,
+      "temp": {
+        "day": 282.67,
+        "min": 272.28,
+        "max": 282.67,
+        "night": 274.72,
+        "eve": 281.96,
+        "morn": 272.28
+      },
+      "pressure": 811.19,
+      "humidity": 0,
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "speed": 3.43,
+      "deg": 329,
+      "clouds": 10,
+      "rain": 1.03
+    },
+    {
+      "dt": 1493748000,
+      "temp": {
+        "day": 280.23,
+        "min": 270.86,
+        "max": 280.23,
+        "night": 273.72,
+        "eve": 276.65,
+        "morn": 270.86
+      },
+      "pressure": 810.06,
+      "humidity": 0,
+      "weather": [
+        {
+          "id": 601,
+          "main": "Snow",
+          "description": "snow",
+          "icon": "13d"
+        }
+      ],
+      "speed": 2.51,
+      "deg": 56,
+      "clouds": 37,
+      "rain": 12.77,
+      "snow": 2.76
+    }
+  ]
+}

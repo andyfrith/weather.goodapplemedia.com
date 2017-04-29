@@ -16,7 +16,7 @@
  */
 
 import {
-  CHANGE_USERNAME,
+  CHANGE_CITY,
 } from './constants';
 
 /**
@@ -26,9 +26,9 @@ import {
  *
  * @return {object}    An action object with a type of CHANGE_USERNAME
  */
-export function changeUsername(name) {
+export function changeCity(name) {
   return {
-    type: CHANGE_USERNAME,
+    type: CHANGE_CITY,
     name,
   };
 }

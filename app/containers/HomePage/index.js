@@ -6,39 +6,42 @@
 
 import React from 'react';
 import Helmet from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-
-import { makeSelectRepos, makeSelectLoading, makeSelectError } from 'containers/App/selectors';
-import H2 from 'components/H2';
-import ReposList from 'components/ReposList';
-import AtPrefix from './AtPrefix';
-import CenteredSection from './CenteredSection';
+import { makeSelectLoading, makeSelectError, makeSelectCurrentWeather, makeSelectForecasts } from 'containers/App/selectors';
+import ForecastsList from 'components/ForecastsList';
+import CurrentWeather from 'components/CurrentWeather';
+import { FormattedMessage } from 'react-intl';
 import Form from './Form';
 import Input from './Input';
 import Section from './Section';
 import messages from './messages';
-import { loadRepos } from '../App/actions';
-import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
+import { loadCurrentWeather, loadForecasts } from '../App/actions';
+import { changeCity } from './actions';
+import { makeSelectCity } from './selectors';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
    * when initial state username is not null, submit the form to load repos
    */
   componentDidMount() {
-    if (this.props.username && this.props.username.trim().length > 0) {
+    if (this.props.city && this.props.city.trim().length > 0) {
       this.props.onSubmitForm();
     }
   }
 
   render() {
-    const { loading, error, repos } = this.props;
-    const reposListProps = {
+    const { loading, error, currentWeather, forecasts } = this.props;
+    const forecastsListProps = {
       loading,
       error,
-      repos,
+      forecasts,
+    };
+
+    const currentWeatherProps = {
+      loading,
+      error,
+      currentWeather,
     };
 
     return (
@@ -46,38 +49,26 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         <Helmet
           title="Home Page"
           meta={[
-            { name: 'description', content: 'A React.js Boilerplate application homepage' },
+            { name: 'description', content: 'A weather forecast demo application using React.js Boilerplate application' },
           ]}
         />
         <div>
-          <CenteredSection>
-            <H2>
-              <FormattedMessage {...messages.startProjectHeader} />
-            </H2>
-            <p>
-              <FormattedMessage {...messages.startProjectMessage} />
-            </p>
-          </CenteredSection>
           <Section>
-            <H2>
-              <FormattedMessage {...messages.trymeHeader} />
-            </H2>
             <Form onSubmit={this.props.onSubmitForm}>
-              <label htmlFor="username">
-                <FormattedMessage {...messages.trymeMessage} />
-                <AtPrefix>
-                  <FormattedMessage {...messages.trymeAtPrefix} />
-                </AtPrefix>
+              <label style={{ fontStyle: 'italic' }} htmlFor="city">
+                <FormattedMessage {...messages.searchPrompt} />
                 <Input
-                  id="username"
+                  id="city"
                   type="text"
-                  placeholder="mxstbr"
-                  value={this.props.username}
-                  onChange={this.props.onChangeUsername}
+                  placeholder="Denver"
+                  value={this.props.city}
+                  onChange={this.props.onChangeCity}
+                  style={{ marginLeft: '10px' }}
                 />
               </label>
             </Form>
-            <ReposList {...reposListProps} />
+            <CurrentWeather {...currentWeatherProps} />
+            <ForecastsList {...forecastsListProps} />
           </Section>
         </div>
       </article>
@@ -91,28 +82,36 @@ HomePage.propTypes = {
     React.PropTypes.object,
     React.PropTypes.bool,
   ]),
-  repos: React.PropTypes.oneOfType([
-    React.PropTypes.array,
+  currentWeather: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.bool,
+  ]),
+  forecasts: React.PropTypes.oneOfType([
+    React.PropTypes.object,
     React.PropTypes.bool,
   ]),
   onSubmitForm: React.PropTypes.func,
-  username: React.PropTypes.string,
-  onChangeUsername: React.PropTypes.func,
+  city: React.PropTypes.string,
+  onChangeCity: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
+    onChangeCity: (evt) => dispatch(changeCity(evt.target.value)),
     onSubmitForm: (evt) => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadRepos());
+      if (evt !== undefined && evt.preventDefault) {
+        evt.preventDefault();
+        dispatch(loadCurrentWeather());
+        dispatch(loadForecasts());
+      }
     },
   };
 }
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
-  username: makeSelectUsername(),
+  forecasts: makeSelectForecasts(),
+  currentWeather: makeSelectCurrentWeather(),
+  city: makeSelectCity(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });

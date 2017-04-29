@@ -1,16 +1,16 @@
 {
-  "name": "react-boilerplate",
+  "name": "goodappleweather",
   "version": "3.4.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "description": "A highly scalable, React JavaScript application with a focus on performance and best practices that displays weather forecast information.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git://github.com/andyfrith/weather.goodapplemedia.com.git"
   },
   "engines": {
     "npm": ">=3",
     "node": ">=5"
   },
-  "author": "Max Stoiber",
+  "author": "Andy Frith",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",

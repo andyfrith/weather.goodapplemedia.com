@@ -21,9 +21,14 @@ const makeSelectError = () => createSelector(
   (globalState) => globalState.get('error')
 );
 
-const makeSelectRepos = () => createSelector(
+const makeSelectCurrentWeather = () => createSelector(
   selectGlobal,
-  (globalState) => globalState.getIn(['userData', 'repositories'])
+  (globalState) => globalState.getIn(['userData', 'currentWeather'])
+);
+
+const makeSelectForecasts = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.getIn(['userData', 'forecasts'])
 );
 
 const makeSelectLocationState = () => {
@@ -47,6 +52,7 @@ export {
   makeSelectCurrentUser,
   makeSelectLoading,
   makeSelectError,
-  makeSelectRepos,
+  makeSelectCurrentWeather,
+  makeSelectForecasts,
   makeSelectLocationState,
 };

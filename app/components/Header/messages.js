@@ -6,12 +6,28 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  home: {
-    id: 'boilerplate.components.Header.home',
-    defaultMessage: 'Home',
+  today: {
+    id: 'goodappleweather.components.Header.today',
+    defaultMessage: 'Today',
   },
-  features: {
-    id: 'boilerplate.components.Header.features',
-    defaultMessage: 'Features',
+  hourly: {
+    id: 'goodappleweather.components.Header.hourly',
+    defaultMessage: 'Hourly',
+  },
+  fiveDay: {
+    id: 'goodappleweather.components.Header.fiveDay',
+    defaultMessage: '5 Day',
+  },
+  tenDay: {
+    id: 'goodappleweather.components.Header.tenDay',
+    defaultMessage: '10 Day',
+  },
+  weekend: {
+    id: 'goodappleweather.components.Header.weekend',
+    defaultMessage: 'Weekend',
+  },
+  monthly: {
+    id: 'goodappleweather.components.Header.monthly',
+    defaultMessage: 'Monthly',
   },
 });
