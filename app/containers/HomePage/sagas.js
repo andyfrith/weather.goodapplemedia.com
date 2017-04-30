@@ -16,7 +16,7 @@ export function* getForecasts() {
   // Select city from store
   const city = yield select(makeSelectCity());
   const APPID = '90145ec8eddec68ad6757d751338bac4';
-  const requestURL = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=5&APPID=${APPID}`;
+  const requestURL = `http://api.openweathermap.org/data/2.5/forecast/daily?units=imperial&q=${city}&cnt=5&APPID=${APPID}`;
   try {
     // Call our request helper (see 'utils/request')
     const forecasts = yield call(request, requestURL);
@@ -33,7 +33,8 @@ export function* getCurrentWeather() {
   // Select city from store
   const city = yield select(makeSelectCity());
   const APPID = '90145ec8eddec68ad6757d751338bac4';
-  const requestURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${APPID}`;
+  const requestURL = `http://api.openweathermap.org/data/2.5/weather?units=imperial&q=${city}&APPID=${APPID}`;
+  // units=metric
   try {
     // Call our request helper (see 'utils/request')
     const currentWeather = yield call(request, requestURL);

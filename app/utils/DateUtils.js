@@ -39,8 +39,19 @@ function convertTemp(kelvin) {
 
 function getTime(unixTimestmap) {
   const date = new Date(unixTimestmap * 1000);
-  const time = date.getHours() + ':' + date.getMinutes();// + ((date.getHours() > 12) ? ' PM' : ' AM');
+  const time = getTimeStr(date);
   return time;
+}
+
+function getTimeStr(date) {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  let strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
 }
 
 function getDayOfWeek(unixTimestmap) {
@@ -57,9 +68,16 @@ function getDayOfWeekAbbr(unixTimestmap) {
   return day; // + ', ' + month;
 }
 
+function getNow() {
+  const date = new Date();
+  const time = getTimeStr(date);
+  return time;
+}
+
 module.exports = {
   convertTemp: convertTemp,
   getTime: getTime,
   getDayOfWeek: getDayOfWeek,
   getDayOfWeekAbbr: getDayOfWeekAbbr,
+  getNow: getNow,
 };

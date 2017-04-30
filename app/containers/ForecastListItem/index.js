@@ -18,8 +18,8 @@ export class ForecastListItem extends React.PureComponent { // eslint-disable-li
     const item = this.props.item;
     const img = `http://openweathermap.org/img/w/${item.weather[0].icon}.png`;
     const date = getDayOfWeekAbbr(item.dt);
-    const tempMin = convertTemp(item.temp.min);
-    const tempMax = convertTemp(item.temp.max);
+    const tempMin = Math.round(item.temp.min);
+    const tempMax = Math.round(item.temp.max);
     const content = (
       <Wrapper>
         <span style={{ color: '#bababa' }}>{ date }</span>

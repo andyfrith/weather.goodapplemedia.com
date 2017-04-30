@@ -8,14 +8,15 @@ import messages from './messages';
 function Footer() {
   return (
     <Wrapper>
-      <section>
-        <FormattedMessage
-          {...messages.authorMessage}
-          values={{
-            author: <A href="http://andyfrith.com">Andy Frith</A>,
-          }}
-        />
-      </section>
+      <div style={{width: '100%', background: '#141d26', height: '100px' }}>&nbsp;</div>
+      {/*<section>*/}
+        {/*<FormattedMessage*/}
+          {/*{...messages.authorMessage}*/}
+          {/*values={{*/}
+            {/*author: <A href="http://andyfrith.com">Andy Frith</A>,*/}
+          {/*}}*/}
+        {/*/>*/}
+      {/*</section>*/}
     </Wrapper>
   );
 }

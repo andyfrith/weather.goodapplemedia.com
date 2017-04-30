@@ -9,6 +9,7 @@ injectGlobal`
   }
 
   body {
+    background: #d6d3d2;
     font-family: 'Roboto', sans-serif;
     // padding: 20px;
   }
@@ -22,14 +23,28 @@ injectGlobal`
     // padding: 20px 16px 24px 16px;
     // border: 1px solid grey;
     
-    background-color: white;
+    // background-color: white;
     min-height: 100%;
     min-width: 100%;
+  }
+  
+  h3 {
+    color: #f05514;
   }
 
   p,
   label {
     font-family: 'Roboto', sans-serif;
     line-height: 1.5em;
+  }
+  
+  article {
+    background: white;
+    border: 1px solid #bdbab9;
+    margin: 0 20px 0 20px;
+  }
+  
+  form {
+    float: right;
   }
 `;

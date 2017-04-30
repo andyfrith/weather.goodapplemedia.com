@@ -6,6 +6,22 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  now: {
+    id: 'goodappleweather.components.Header.now',
+    defaultMessage: 'Now',
+  },
+  weekend: {
+    id: 'goodappleweather.components.Header.weekend',
+    defaultMessage: 'Weekend',
+  },
+  extended: {
+    id: 'goodappleweather.components.Header.extended',
+    defaultMessage: 'Extended',
+  },
+  month: {
+    id: 'goodappleweather.components.Header.month',
+    defaultMessage: 'Month',
+  },
   today: {
     id: 'goodappleweather.components.Header.today',
     defaultMessage: 'Today',

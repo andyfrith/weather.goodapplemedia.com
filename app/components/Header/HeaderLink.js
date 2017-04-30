@@ -15,12 +15,13 @@ export default styled(Link)`
   font-weight: bold;
   font-size: 16px;
   // border: 1px solid white;
-  color: white;
+  color: #c3c3c3;
   
   &:active {
-    text-decoration: underline;
     color: #FFF;
   }
   
-  
+  &.current {
+    color: #FFF;
+  }
 `;

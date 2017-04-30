@@ -11,7 +11,9 @@ import { createStructuredSelector } from 'reselect';
 import { makeSelectLoading, makeSelectError, makeSelectCurrentWeather, makeSelectForecasts } from 'containers/App/selectors';
 import ForecastsList from 'components/ForecastsList';
 import CurrentWeather from 'components/CurrentWeather';
+import Button from 'components/Button';
 import { FormattedMessage } from 'react-intl';
+import { getNow } from 'utils/DateUtils';
 import Form from './Form';
 import Input from './Input';
 import Section from './Section';
@@ -19,6 +21,8 @@ import messages from './messages';
 import { loadCurrentWeather, loadForecasts } from '../App/actions';
 import { changeCity } from './actions';
 import { makeSelectCity } from './selectors';
+import Img from './Img';
+import SearchIcon from './search-glass.svg';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
@@ -45,33 +49,41 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     };
 
     return (
-      <article>
-        <Helmet
-          title="Home Page"
-          meta={[
-            { name: 'description', content: 'A weather forecast demo application using React.js Boilerplate application' },
-          ]}
-        />
-        <div>
-          <Section>
-            <Form onSubmit={this.props.onSubmitForm}>
-              <label style={{ fontStyle: 'italic' }} htmlFor="city">
-                <FormattedMessage {...messages.searchPrompt} />
-                <Input
-                  id="city"
-                  type="text"
-                  placeholder="Denver"
-                  value={this.props.city}
-                  onChange={this.props.onChangeCity}
-                  style={{ marginLeft: '10px' }}
-                />
-              </label>
-            </Form>
-            <CurrentWeather {...currentWeatherProps} />
-            <ForecastsList {...forecastsListProps} />
-          </Section>
+      <div>
+        <div style={{ background: 'black', height: '60px', padding: '20px 10px 10px 30px', marginBottom: '20px', color: 'white' }}>
+          <div style={{ display: 'inline' }}>Now { getNow() }</div>
+          <Form onSubmit={this.props.onSubmitForm}>
+            <label style={{ fontStyle: 'italic' }} htmlFor="city">
+              <FormattedMessage {...messages.searchPrompt} />
+              <Input
+                id="city"
+                type="text"
+                placeholder="Denver"
+                value={this.props.city}
+                onChange={this.props.onChangeCity}
+                style={{ marginLeft: '10px' }}
+              />
+              <Img src={SearchIcon} alt="Search Icon" />
+              <Button onClick={this.props.onSubmitForm}>Submit</Button>
+            </label>
+          </Form>
         </div>
-      </article>
+
+        <article>
+          <Helmet
+            title="Home Page"
+            meta={[
+              { name: 'description', content: 'A weather forecast demo application using React.js Boilerplate application' },
+            ]}
+          />
+          <div>
+            <Section>
+              <CurrentWeather {...currentWeatherProps} />
+              <ForecastsList {...forecastsListProps} />
+            </Section>
+          </div>
+        </article>
+      </div>
     );
   }
 }
