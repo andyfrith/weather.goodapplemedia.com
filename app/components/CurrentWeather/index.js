@@ -16,7 +16,7 @@ function CurrentWeather({ loading, error, currentWeather }) {
   if (error !== false) {
     const ErrorComponent = () => (
       <Wrapper>
-        Something went wrong, please try again!
+        Something went wrong, please try again! Enter a city in the search box above.
       </Wrapper>
     );
     return <div><ErrorComponent /></div>;

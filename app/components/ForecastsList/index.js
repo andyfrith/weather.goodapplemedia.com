@@ -11,8 +11,12 @@ function ForecastsList({ loading, error, forecasts }) {
   }
 
   if (error !== false) {
+    // const ErrorComponent = () => (
+    //   <ListItem item={'Something went wrong, please try again! Enter a city in the search box above.'} />
+    // );
+
     const ErrorComponent = () => (
-      <ListItem item={'Something went wrong, please try again!'} />
+      <ListItem item={''} />
     );
     return <List component={ErrorComponent} />;
   }

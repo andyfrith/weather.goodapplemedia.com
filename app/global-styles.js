@@ -52,5 +52,11 @@ injectGlobal`
     article {
       margin: 0 20px 0 20px;
     }
-   }
+  }
+  
+  @media (min-width: 250px) {
+    input {
+      margin-left: 10px;
+    }
+  }
 `;

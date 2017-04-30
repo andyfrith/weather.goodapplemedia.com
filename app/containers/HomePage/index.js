@@ -62,10 +62,11 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
                 placeholder="Denver"
                 value={this.props.city}
                 onChange={this.props.onChangeCity}
-                style={{ marginLeft: '10px' }}
               />
               <Img src={SearchIcon} alt="Search Icon" />
-              <Button onClick={this.props.onSubmitForm}>Submit</Button>
+              <div className="buttonHolder">
+                <Button onClick={this.props.onSubmitForm}>Submit</Button>
+              </div>
             </label>
           </Form>
         </div>

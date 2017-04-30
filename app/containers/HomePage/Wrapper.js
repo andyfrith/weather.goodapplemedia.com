@@ -34,7 +34,7 @@ const Wrapper = styled.div`
     }
   }
 
-  Button {
+  .buttonHolder {
     display: none;
   }
   
@@ -42,12 +42,12 @@ const Wrapper = styled.div`
     .header {
       padding: 20px 10px 10px 20px;
     }
-    
-    form {
-      button {
-        display: inline;  
-      }
-    }
+  }
+  
+  @media (min-width: 500px) {
+    .buttonHolder {
+      display: inline;
+    }   
   }
 `;
 
