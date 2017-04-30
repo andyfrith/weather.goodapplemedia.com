@@ -23,6 +23,7 @@ import { changeCity } from './actions';
 import { makeSelectCity } from './selectors';
 import Img from './Img';
 import SearchIcon from './search-glass.svg';
+import Wrapper from './Wrapper';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
@@ -49,12 +50,12 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     };
 
     return (
-      <div>
-        <div style={{ background: 'black', height: '60px', padding: '20px 10px 10px 30px', marginBottom: '20px', color: 'white' }}>
-          <div style={{ display: 'inline' }}>Now { getNow() }</div>
+      <Wrapper>
+        <div className="header">
+          <div className="now">Now { getNow() }</div>
           <Form onSubmit={this.props.onSubmitForm}>
             <label style={{ fontStyle: 'italic' }} htmlFor="city">
-              <FormattedMessage {...messages.searchPrompt} />
+              <FormattedMessage className="searchPrompt" {...messages.searchPrompt} />
               <Input
                 id="city"
                 type="text"
@@ -83,7 +84,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             </Section>
           </div>
         </article>
-      </div>
+      </Wrapper>
     );
   }
 }

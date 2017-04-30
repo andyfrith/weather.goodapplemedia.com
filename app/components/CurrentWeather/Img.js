@@ -7,7 +7,11 @@ const Img = styled(NormalImg)`
   margin-right: 0 10px 0 0;
   
   display: block;
-  width: 100px;
+  width: 60px;
+  
+  @media (min-width: 450px) {
+    width: 100px;
+  }
 `;
 
 export default Img;

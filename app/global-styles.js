@@ -41,10 +41,16 @@ injectGlobal`
   article {
     background: white;
     border: 1px solid #bdbab9;
-    margin: 0 20px 0 20px;
+    margin: 0;
   }
   
   form {
     float: right;
   }
+  
+  @media (min-width: 450px) {
+    article {
+      margin: 0 20px 0 20px;
+    }
+   }
 `;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { media } from '../../utils/StyleUtils';
 
 const Wrapper = styled.div`
   margin-bottom: 30px;
@@ -36,18 +35,26 @@ const Wrapper = styled.div`
   }
   
   .temp {
-    font-size: 64px;
+    font-size: 44px;
     color: #212121;
   }
   
   .wind {
-    paddingLeft: 30px;
-    paddingTop: 18px;
+    paddingLeft: 10px;
+    paddingTop: 10px;
   }
     
-  ${ media.phone`
     
-  `}
+  @media (min-width: 450px) {
+    .temp {
+      font-size: 64px;
+    }
+    
+    .wind {
+      paddingLeft: 30px;
+      paddingTop: 18px;
+    }
+  }
 `;
 
 export default Wrapper;
